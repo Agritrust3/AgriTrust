@@ -1,9 +1,8 @@
 
 
-export const createCrop = async (req, res) => {
+export const createCrop = async () => {
     try {
-        const { name, fertilizer, pesticide, seedType } = req.body;
-        const cropModel = new crop({ name, fertilizer, pesticide, seedType, farmer: req.params.userId, farm: req.params.farmId });
+        const cropModel = new crop({ name: "", fertilizer: "", pesticide: "", seedType: "", farmer: "", farm: "" });
         await cropModel.save();
         await cropModel.populate('farmer', 'name mobile');
         await cropModel.populate('farm', 'name location');
